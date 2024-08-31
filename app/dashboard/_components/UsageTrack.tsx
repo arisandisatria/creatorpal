@@ -1,6 +1,7 @@
 "use client";
 
 import { TotalUsageContext } from "@/app/(context)/TotalUsageContext";
+import { UpdateCreditUsageContext } from "@/app/(context)/UpdateCreditUsageContext";
 import { Button } from "@/components/ui/button";
 import { db } from "@/utils/db";
 import { AIOutputSchema } from "@/utils/schema";
@@ -21,12 +22,15 @@ const UsageTrack = () => {
   const { user } = useUser();
 
   const { totalUsage, setTotalUsage } = useContext(TotalUsageContext);
+  const { updateCreditUsage, setUpdateCreditUsage } = useContext(
+    UpdateCreditUsageContext
+  );
 
   useEffect(() => {
     if (user?.primaryEmailAddress?.emailAddress) {
       getData(user.primaryEmailAddress.emailAddress);
     }
-  }, [user]);
+  }, [user, updateCreditUsage]);
 
   const getData = async (email: string) => {
     {
