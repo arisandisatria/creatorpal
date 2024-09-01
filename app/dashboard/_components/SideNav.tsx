@@ -37,13 +37,13 @@ const SideNav = () => {
 
   return (
     <div className="h-screen realtive p-5 shadow-sm border bg-white">
-      <div className="flex justify-center items-center">
+      <Link href={"/dashboard"} className="flex justify-center items-center">
         <Image src={"/logo.png"} alt="Logo" width={60} height={60} />
         <h1 className="text-3xl font-semibold -ml-2">
           <span className="text-primary">Creator</span>
           <span className="text-blue-600">Pal</span>
         </h1>
-      </div>
+      </Link>
       <hr className="my-6 border" />
       <div className="mt-3">
         {menuList.map((menu, index) => (

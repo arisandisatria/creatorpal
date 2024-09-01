@@ -37,7 +37,7 @@ export default [
         required: true,
       },
       {
-        label: "Masukkan outline blog disini",
+        label: "Masukkan outline blog disini (opsional)",
         field: "textarea",
         name: "outline",
       },
@@ -76,7 +76,7 @@ export default [
         required: true,
       },
       {
-        label: "Masukkan deskripsi video kamu disini",
+        label: "Masukkan deskripsi video kamu disini (opsional)",
         field: "textarea",
         name: "outline",
       },
@@ -98,7 +98,7 @@ export default [
         required: true,
       },
       {
-        label: "Masukkan outlinenya disini",
+        label: "Masukkan outlinenya disini (opsional)",
         field: "textarea",
         name: "outline",
       },
@@ -122,7 +122,7 @@ export default [
         required: true,
       },
       {
-        label: "Masukkan outline videonya disini (Opsional)",
+        label: "Masukkan outline videonya disini (opsional)",
         field: "textarea",
         name: "outline",
       },
@@ -349,6 +349,23 @@ export default [
         label: "Masukkan detail produknya disini",
         field: "textarea",
         name: "outline",
+        required: true,
+      },
+    ],
+  },
+  {
+    name: "Tiktok Hashtag Generator",
+    desc: "gausah pusing, AI ini bakalan bikinin kamu tag yang viral",
+    icon: "https://cdn-icons-png.flaticon.com/128/3046/3046121.png",
+    category: "Marketing",
+    slug: "tiktok-hash-tag-generator",
+    aiPrompt:
+      "Consider yourself the best content writer and copywriter in the world. Generate 15 Tiktok hash tag depends on a given keywords and give output in rich text editor format. Write it in Indonesian or English language.",
+    form: [
+      {
+        label: "Masukkan kata kunci disini",
+        field: "input",
+        name: "keywords",
         required: true,
       },
     ],

@@ -33,6 +33,7 @@ const BillingCards = ({
   );
 
   const checkout = async () => {
+    setIsLoading(true);
     const data = {
       id: user?.id,
       orderId: `order-${Math.floor(Math.random() * (999999 - 0 + 1) + 0)}`,
@@ -55,6 +56,7 @@ const BillingCards = ({
           paymentId: requestData?.subscriptionId.id,
           joinDate: moment().format("DD/mm/yyyy"),
         });
+        setIsLoading(false);
       },
       onPending: function (result) {
         console.log("pending");

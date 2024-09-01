@@ -102,6 +102,7 @@ const UsageTrack = () => {
           router.push("/dashboard/billing");
         }}
         variant={"secondary"}
+        disabled={userSubscription}
         className="w-full my-3 text-primary hover:bg-primary hover:text-white"
       >
         Upgrade
