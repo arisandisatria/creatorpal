@@ -11,7 +11,7 @@ const Header = () => {
       </div>
       <div className="flex gap-10 items-center">
         <h2 className="bg-primary p-3 rounded-full text-xs text-white px-2">
-          🔥Gas Berlangganan! cuman 20k/bulan
+          🔥Gas Berlangganan! cuman 10k/bulan
         </h2>
         <UserButton />
       </div>

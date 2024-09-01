@@ -16,6 +16,7 @@ import moment from "moment";
 import { TotalUsageContext } from "@/app/(context)/TotalUsageContext";
 import { useRouter } from "next/navigation";
 import { UpdateCreditUsageContext } from "@/app/(context)/UpdateCreditUsageContext";
+import { UserSubscriptionContext } from "@/app/(context)/UserSubscriptionContext";
 
 interface PROPS {
   params: {
@@ -32,6 +33,9 @@ const CreateNewContent = (props: PROPS) => {
   const { updateCreditUsage, setUpdateCreditUsage } = useContext(
     UpdateCreditUsageContext
   );
+  const { userSubscription, setUserSubscription } = useContext(
+    UserSubscriptionContext
+  );
 
   /**
    *
@@ -42,7 +46,7 @@ const CreateNewContent = (props: PROPS) => {
   );
 
   const generateAIContent = async (formData: any) => {
-    if (totalUsage >= 10000) {
+    if (totalUsage >= 10000 && !userSubscription) {
       console.log("Please upgrade");
       router.push("/dashboard/billing");
       return;
