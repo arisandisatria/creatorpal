@@ -47,6 +47,8 @@ const BillingCards = ({
 
     const requestData = await response.json();
 
+    console.log(requestData);
+
     window.snap.pay(requestData.token, {
       onSuccess: async function (result) {
         await db.insert(UserSubscriptionSchema).values({
