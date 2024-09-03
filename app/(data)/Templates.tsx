@@ -130,56 +130,6 @@ export default [
   },
 
   {
-    name: "Rewrite Article (Plagiarism Free)",
-    desc: "Atasi plagiarisme disini. GRATIS!",
-    icon: "https://cdn-icons-png.flaticon.com/128/3131/3131607.png",
-    category: "Rewriting Tool",
-    slug: "rewrite-article",
-    aiPrompt:
-      "Consider yourself the best copywriter in the world. Rewrite give article without any Plagiarism in rich text editor format. Accordance with good and correct Indonesian writing.",
-    form: [
-      {
-        label: "Masukkan artikel disini",
-        field: "textarea",
-        name: "article",
-        required: true,
-      },
-    ],
-  },
-  {
-    name: "Text Improver",
-    desc: "Tulisanmu kurang rapi? Kurang enak dibaca? AI ini bisa bantu kamu.",
-    icon: "https://cdn-icons-png.flaticon.com/128/1686/1686815.png",
-    category: "Writing Assistant",
-    slug: "text-improver",
-    aiPrompt:
-      "Consider yourself the best copywriter in the world. Given textToImprove, Rewrite text without any grammar mistake and professionally in rich text editor format. Accordance with good and correct Indonesian writing.",
-    form: [
-      {
-        label: "Masukkan tulisanmu disini",
-        field: "textarea",
-        name: "textToImprove",
-      },
-    ],
-  },
-  {
-    name: "Add Emojis to Text",
-    desc: "Tulisan kamu bakalan menarik kalo ditambah emoji. AI ini bisa bantu loh",
-    icon: "https://cdn-icons-png.flaticon.com/128/2584/2584606.png",
-    category: "blog",
-    slug: "add-emoji-to-text",
-    aiPrompt:
-      "Add Emoji to outline text depends on outline and rewrite it in rich text editor format and keep it with good and correct Indonesian writing.",
-    form: [
-      {
-        label: "Masukan teks disini",
-        field: "textarea",
-        name: "outline",
-        required: true,
-      },
-    ],
-  },
-  {
     name: "Instagram Post Generator",
     desc: "Bikin konten IG itu gampang. Pake AI ini aja",
     icon: "https://cdn-icons-png.flaticon.com/128/15713/15713420.png",
@@ -198,7 +148,7 @@ export default [
     ],
   },
   {
-    name: "Instagram Hash Tag Generator",
+    name: "Instagram Hashtag Generator",
     desc: "Pake AI ini aja daripada bingung bikin tag konten IG kamu",
     icon: "https://cdn-icons-png.flaticon.com/128/7045/7045432.png",
     category: "blog",
@@ -229,78 +179,6 @@ export default [
         label: "Masukkan kata kunci disini",
         field: "input",
         name: "keywords",
-        required: true,
-      },
-    ],
-  },
-  {
-    name: "English Grammer Check",
-    desc: "Cek grammar kamu pake AI ini",
-    icon: "https://cdn-icons-png.flaticon.com/128/12596/12596700.png",
-    category: "english",
-
-    slug: "english-grammer-checker",
-    aiPrompt:
-      "Consider yourself the best copywriter in the world. Rewrite the input text by correcting the grammer and give output in rich text editor format",
-    form: [
-      {
-        label: "Masukkan teks disini",
-        field: "input",
-        name: "inputText",
-        required: true,
-      },
-    ],
-  },
-  {
-    name: "Write Code",
-    desc: "Bikin source code cepet dan gampang disini",
-    icon: "https://cdn-icons-png.flaticon.com/128/6062/6062646.png",
-    category: "Coding",
-
-    slug: "write-code",
-    aiPrompt:
-      "Consider yourself the best programmer in the world. Depends on user codeDescription write a code and give output in rich text editor format in code block",
-    form: [
-      {
-        label: "Masukkan deskripsi yang mau kamu bikin dan bahasanya disini",
-        field: "textarea",
-        name: "codeDesscripton",
-        required: true,
-      },
-    ],
-  },
-  {
-    name: "Explain Code",
-    desc: "Gausah bingung. AI ini bisa jelasin semua kode kamu",
-    icon: "https://cdn-icons-png.flaticon.com/128/8488/8488751.png",
-    category: "Coding",
-
-    slug: "explain-code",
-    aiPrompt:
-      "Consider yourself the best programmer in the world. Depends on user codeDescription explain code line by line and give output in rich text editor format in code block. Explain it in Indonesian language",
-    form: [
-      {
-        label: "Masukkan kodenya disini",
-        field: "textarea",
-        name: "codeDesscripton",
-        required: true,
-      },
-    ],
-  },
-  {
-    name: "Code Bug Detector",
-    desc: "AI ini bakal ngasi tau error dan bug terus kasi kamu solusinya",
-    icon: "https://cdn-icons-png.flaticon.com/128/4426/4426267.png",
-    category: "code-bug-detector",
-
-    slug: "code-bug-detector",
-    aiPrompt:
-      "Consider yourself the best programmer in the world. Depends on user codeInput find bug in code and give solution and give output in rich text editor format in code block. Explain it in Indonesian language",
-    form: [
-      {
-        label: "Masukkan kode disini",
-        field: "textarea",
-        name: "codeInput",
         required: true,
       },
     ],
@@ -355,7 +233,7 @@ export default [
   },
   {
     name: "Tiktok Hashtag Generator",
-    desc: "gausah pusing, AI ini bakalan bikinin kamu tag yang viral",
+    desc: "Gausah pusing, AI ini bakalan bikinin kamu tag yang viral",
     icon: "https://cdn-icons-png.flaticon.com/128/3046/3046121.png",
     category: "Marketing",
     slug: "tiktok-hash-tag-generator",
@@ -371,3 +249,126 @@ export default [
     ],
   },
 ];
+// {
+//   name: "English Grammer Check",
+//   desc: "Cek grammar kamu pake AI ini",
+//   icon: "https://cdn-icons-png.flaticon.com/128/12596/12596700.png",
+//   category: "english",
+
+//   slug: "english-grammer-checker",
+//   aiPrompt:
+//     "Consider yourself the best copywriter in the world. Rewrite the input text by correcting the grammer and give output in rich text editor format",
+//   form: [
+//     {
+//       label: "Masukkan teks disini",
+//       field: "input",
+//       name: "inputText",
+//       required: true,
+//     },
+//   ],
+// },
+// {
+//   name: "Write Code",
+//   desc: "Bikin source code cepet dan gampang disini",
+//   icon: "https://cdn-icons-png.flaticon.com/128/6062/6062646.png",
+//   category: "Coding",
+
+//   slug: "write-code",
+//   aiPrompt:
+//     "Consider yourself the best programmer in the world. Depends on user codeDescription write a code and give output in rich text editor format in code block",
+//   form: [
+//     {
+//       label: "Masukkan deskripsi yang mau kamu bikin dan bahasanya disini",
+//       field: "textarea",
+//       name: "codeDesscripton",
+//       required: true,
+//     },
+//   ],
+// },
+// {
+//   name: "Explain Code",
+//   desc: "Gausah bingung. AI ini bisa jelasin semua kode kamu",
+//   icon: "https://cdn-icons-png.flaticon.com/128/8488/8488751.png",
+//   category: "Coding",
+
+//   slug: "explain-code",
+//   aiPrompt:
+//     "Consider yourself the best programmer in the world. Depends on user codeDescription explain code line by line and give output in rich text editor format in code block. Explain it in Indonesian language",
+//   form: [
+//     {
+//       label: "Masukkan kodenya disini",
+//       field: "textarea",
+//       name: "codeDesscripton",
+//       required: true,
+//     },
+//   ],
+// },
+// {
+//   name: "Code Bug Detector",
+//   desc: "AI ini bakal ngasi tau error dan bug terus kasi kamu solusinya",
+//   icon: "https://cdn-icons-png.flaticon.com/128/4426/4426267.png",
+//   category: "code-bug-detector",
+
+//   slug: "code-bug-detector",
+//   aiPrompt:
+//     "Consider yourself the best programmer in the world. Depends on user codeInput find bug in code and give solution and give output in rich text editor format in code block. Explain it in Indonesian language",
+//   form: [
+//     {
+//       label: "Masukkan kode disini",
+//       field: "textarea",
+//       name: "codeInput",
+//       required: true,
+//     },
+//   ],
+// },
+
+// {
+//   name: "Rewrite Article (Plagiarism Free)",
+//   desc: "Atasi plagiarisme disini. GRATIS!",
+//   icon: "https://cdn-icons-png.flaticon.com/128/3131/3131607.png",
+//   category: "Rewriting Tool",
+//   slug: "rewrite-article",
+//   aiPrompt:
+//     "Consider yourself the best copywriter in the world. Rewrite give article without any Plagiarism in rich text editor format. Accordance with good and correct Indonesian writing.",
+//   form: [
+//     {
+//       label: "Masukkan artikel disini",
+//       field: "textarea",
+//       name: "article",
+//       required: true,
+//     },
+//   ],
+// },
+// {
+//   name: "Text Improver",
+//   desc: "Tulisanmu kurang rapi? Kurang enak dibaca? AI ini bisa bantu kamu.",
+//   icon: "https://cdn-icons-png.flaticon.com/128/1686/1686815.png",
+//   category: "Writing Assistant",
+//   slug: "text-improver",
+//   aiPrompt:
+//     "Consider yourself the best copywriter in the world. Given textToImprove, Rewrite text without any grammar mistake and professionally in rich text editor format. Accordance with good and correct Indonesian writing.",
+//   form: [
+//     {
+//       label: "Masukkan tulisanmu disini",
+//       field: "textarea",
+//       name: "textToImprove",
+//     },
+//   ],
+// },
+// {
+//   name: "Add Emojis to Text",
+//   desc: "Tulisan kamu bakalan menarik kalo ditambah emoji. AI ini bisa bantu loh",
+//   icon: "https://cdn-icons-png.flaticon.com/128/2584/2584606.png",
+//   category: "blog",
+//   slug: "add-emoji-to-text",
+//   aiPrompt:
+//     "Add Emoji to outline text depends on outline and rewrite it in rich text editor format and keep it with good and correct Indonesian writing.",
+//   form: [
+//     {
+//       label: "Masukan teks disini",
+//       field: "textarea",
+//       name: "outline",
+//       required: true,
+//     },
+//   ],
+// },

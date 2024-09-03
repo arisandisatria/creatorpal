@@ -28,11 +28,11 @@ const History = () => {
     if (user?.primaryEmailAddress?.emailAddress) {
       fetchDataFromDB(user.primaryEmailAddress.emailAddress);
     }
-  }, []);
+  }, [user]);
 
   return (
     <div className="m-7 h-full shadow-md border rounded-lg bg-white">
-      <div className="p-5 flex flex-col gap-5">
+      <div className="p-3 md:p-5 flex flex-col gap-5">
         <div>
           <h2 className="font-bold text-3xl">Riwayat</h2>
           <p className="text-gray-500">Cari semua riwayat kamu disini</p>

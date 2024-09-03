@@ -23,19 +23,19 @@ const HistorySection = ({ data }: any) => {
     <Table>
       <TableHeader className="bg-gray-100">
         <TableRow>
-          <TableHead className="font-bold text-base text-black w-[25%]">
-            TEMPLATE
+          <TableHead className="font-bold text-base text-black w-[15%]">
+            TOOLS
           </TableHead>
-          <TableHead className="font-bold text-base text-black w-[25%]">
-            AI RESPONSE
+          <TableHead className="font-bold text-base text-black w-[30%]">
+            RESULT
           </TableHead>
-          <TableHead className="font-bold text-base text-black w-[20%]">
+          <TableHead className="font-bold text-base text-black w-[10%]">
             DATE
           </TableHead>
-          <TableHead className="font-bold text-base text-black w-[20%]">
+          <TableHead className="font-bold text-base text-black w-[10%]">
             WORDS
           </TableHead>
-          <TableHead className="font-bold text-base text-black w-[20%]">
+          <TableHead className="font-bold text-base text-black w-[10%]">
             ACTION
           </TableHead>
         </TableRow>
@@ -46,25 +46,27 @@ const HistorySection = ({ data }: any) => {
             (template: any) => template.slug == item.templateSlug
           );
           return (
-            <TableRow
-              key={`item-${index}`}
-              className="border-b-gray-100 hover:bg-white"
-            >
+            <TableRow key={`item-${index}`} className="border-b-gray-100">
               <TableCell className="font-medium">
                 {showTemplate && (
-                  <div className="flex gap-2">
+                  <div className="flex gap-2 items-center">
                     <Image
                       src={showTemplate.icon}
                       alt="icon"
-                      width={20}
-                      height={15}
+                      width={0}
+                      height={0}
+                      className="w-5 h-5"
                     />
-                    {showTemplate.name}
+                    <p className="line-clamp-2 md:line-clamp-none">
+                      {showTemplate.name}
+                    </p>
                   </div>
                 )}
               </TableCell>
-              <TableCell className="font-medium ">
-                <p className="line-clamp-4">{item.aiResponse}</p>
+              <TableCell className="font-medium">
+                <p className="line-clamp-1 md:line-clamp-4">
+                  {item.aiResponse}
+                </p>
               </TableCell>
               <TableCell className="font-medium">{item.createdAt}</TableCell>
               <TableCell className="font-medium">

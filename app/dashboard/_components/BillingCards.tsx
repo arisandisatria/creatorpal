@@ -73,7 +73,7 @@ const BillingCards = ({
   };
 
   return (
-    <div className=" w-[50%] rounded-2xl shadow-md bg-white py-6 px-10 flex flex-col justify-center items-center">
+    <div className="w-full md:w-[50%] rounded-2xl shadow-md bg-white py-6 px-10 flex flex-col justify-center items-center">
       <h4 className="font-bold text-xl">{plan}</h4>
       <p className="my-5">
         <span className="font-bold text-3xl ">Rp {price}</span> /{planDuration}
