@@ -16,21 +16,21 @@ let core = new Midtrans.CoreApi({
 export const POST = async (request) => {
   const { id, orderId, price } = await request.json();
 
-  let parameter = {
-    transaction_details: {
-      order_id: orderId,
-      gross_amount: price,
-    },
-    credit_card: {
-      secure: true,
-      save_card: true,
-    },
-    user_id: id,
-  };
-
-  const token = await snap.createTransactionToken(parameter);
-
   try {
+    let parameter = {
+      transaction_details: {
+        order_id: orderId,
+        gross_amount: price,
+      },
+      credit_card: {
+        secure: true,
+        save_card: true,
+      },
+      user_id: id,
+    };
+
+    const token = await snap.createTransactionToken(parameter);
+
     if (token) {
       let subscriptionParameter = {
         name: "MONTHLY",
@@ -54,7 +54,7 @@ export const POST = async (request) => {
       });
     }
   } catch (error) {
-    console.log(error);
-    return;
+    console.error("Error occurred:", error);
+    return NextResponse.json({ error: error.message }, { status: 500 });
   }
 };
