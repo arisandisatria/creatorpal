@@ -40,39 +40,65 @@ const BillingCards = ({
       price: price,
     };
 
-    const response = await fetch("/api/create-subscription", {
-      method: "POST",
-      body: JSON.stringify(data),
-    });
+    try {
+      const response = await fetch("/api/create-subscription", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
 
-    const requestData = await response.json();
+      // Memeriksa apakah respons HTTP bukan status 2xx
+      if (!response.ok) {
+        const errorMessage = await response.text(); // Membaca pesan error dari respons
+        throw new Error(
+          `HTTP error! Status: ${response.status}. Message: ${errorMessage}`
+        );
+      }
 
-    window.snap.pay(requestData.token, {
-      onSuccess: async function (result) {
-        await db.insert(UserSubscriptionSchema).values({
-          email: user?.primaryEmailAddress?.emailAddress,
-          username: user?.fullName,
-          active: true,
-          paymentId: requestData?.subscriptionId.id,
-          joinDate: moment().format("DD/mm/yyyy"),
-        });
-        setIsLoading(false);
-      },
-      onPending: function (result) {
-        console.log("pending");
-        console.log(result);
-        setIsLoading(false);
-      },
-      onError: function (result) {
-        console.log("error");
-        console.log(result);
-        setIsLoading(false);
-      },
-      onClose: function () {
-        console.log("customer closed the popup without finishing the payment");
-        setIsLoading(false);
-      },
-    });
+      const requestData = await response.json();
+
+      window.snap.pay(requestData.token, {
+        onSuccess: async function (result) {
+          await db.insert(UserSubscriptionSchema).values({
+            email: user?.primaryEmailAddress?.emailAddress,
+            username: user?.fullName,
+            active: true,
+            paymentId: requestData?.subscriptionId.id,
+            joinDate: moment().format("DD/MM/yyyy"), // format yang benar
+          });
+          setIsLoading(false);
+        },
+        onPending: function (result) {
+          console.log("pending");
+          console.log(result);
+          setIsLoading(false);
+        },
+        onError: function (result) {
+          console.log("error");
+          console.log(result);
+          setIsLoading(false);
+        },
+        onClose: function () {
+          console.log(
+            "customer closed the popup without finishing the payment"
+          );
+          setIsLoading(false);
+        },
+      });
+    } catch (error: unknown) {
+      setIsLoading(false);
+      if (error instanceof Error) {
+        console.error("Error during subscription creation:", error.message);
+        alert(
+          "An error occurred while creating the subscription. Please try again later."
+        );
+      } else {
+        console.error("An unknown error occurred:", error);
+        alert("An unknown error occurred. Please try again later.");
+      }
+    }
   };
 
   return (
