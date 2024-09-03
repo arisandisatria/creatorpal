@@ -43,21 +43,17 @@ const BillingCards = ({
     try {
       const response = await fetch("/api/create-subscription", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
         body: JSON.stringify(data),
       });
 
-      // Memeriksa apakah respons HTTP bukan status 2xx
+      const requestData = await response.json();
+
       if (!response.ok) {
-        const errorMessage = await response.text(); // Membaca pesan error dari respons
+        const errorMessage = await response.text();
         throw new Error(
           `HTTP error! Status: ${response.status}. Message: ${errorMessage}`
         );
       }
-
-      const requestData = await response.json();
 
       window.snap.pay(requestData.token, {
         onSuccess: async function (result) {
@@ -66,7 +62,7 @@ const BillingCards = ({
             username: user?.fullName,
             active: true,
             paymentId: requestData?.subscriptionId.id,
-            joinDate: moment().format("DD/MM/yyyy"), // format yang benar
+            joinDate: moment().format("DD/MM/yyyy"),
           });
           setIsLoading(false);
         },

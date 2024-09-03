@@ -28,30 +28,33 @@ export const POST = async (request) => {
     user_id: id,
   };
 
-  let subscriptionParameter = {
-    name: "MONTHLY",
-    amount: price,
-    currency: "IDR",
-    payment_type: "credit_card",
-    token: token,
-    schedule: {
-      interval: 1,
-      interval_unit: "month",
-    },
-  };
+  const token = await snap.createTransactionToken(parameter);
 
   try {
-    const token = await snap.createTransactionToken(parameter);
+    if (token) {
+      let subscriptionParameter = {
+        name: "MONTHLY",
+        amount: price,
+        currency: "IDR",
+        payment_type: "credit_card",
+        token: token,
+        schedule: {
+          interval: 1,
+          interval_unit: "month",
+        },
+      };
 
-    const subscription = await core.createSubscription(subscriptionParameter);
+      const subscription = await core.createSubscription(subscriptionParameter);
 
-    const subscriptionId = await core.getSubscription(subscription.id);
+      const subscriptionId = await core.getSubscription(subscription.id);
 
-    return NextResponse.json({
-      token,
-      subscriptionId,
-    });
+      return NextResponse.json({
+        token,
+        subscriptionId,
+      });
+    }
   } catch (error) {
-    console.log("Error:", error);
+    console.log(error);
+    return;
   }
 };
