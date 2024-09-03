@@ -55,7 +55,7 @@ const HistorySection = ({ data }: any) => {
                       alt="icon"
                       width={0}
                       height={0}
-                      className="w-5 h-5"
+                      className="w-5 h-5 hidden md:block"
                     />
                     <p className="line-clamp-2 md:line-clamp-none">
                       {showTemplate.name}

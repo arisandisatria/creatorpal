@@ -34,7 +34,7 @@ const Billing = () => {
 
   return (
     <div className="py-10 md:py-20 flex flex-col gap-10 justify-center items-center h-full">
-      <h2 className="text-2xl text-center md:text-3xl font-semibold">
+      <h2 className="text-2xl text-center md:text-3xl font-semibold px-6">
         Upgrade Sekarang dan Dapatkan Keuntungannya!
       </h2>
       <div className="flex flex-col md:flex-row gap-3">

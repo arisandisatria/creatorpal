@@ -61,13 +61,16 @@ const BillingCards = ({
       onPending: function (result) {
         console.log("pending");
         console.log(result);
+        setIsLoading(false);
       },
       onError: function (result) {
         console.log("error");
         console.log(result);
+        setIsLoading(false);
       },
       onClose: function () {
         console.log("customer closed the popup without finishing the payment");
+        setIsLoading(false);
       },
     });
   };

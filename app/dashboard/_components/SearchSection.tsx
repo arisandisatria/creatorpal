@@ -7,7 +7,7 @@ const SearchSection = ({ searchInput }: any) => {
       <h2 className="text-3xl font-bold">Cari Semua Tools</h2>
       <p>Ayo buat sesuatu hari ini!</p>
       <div className="w-full flex justify-center items-center">
-        <div className="flex gap-2 items-center p-2 border rounded-md bg-white my-5 w-[40%]">
+        <div className="flex gap-2 items-center p-2 border rounded-md bg-white my-5 w-[70%] md:w-[40%]">
           <Search className="text-primary" />
           <input
             onChange={(event) => searchInput(event.target.value)}

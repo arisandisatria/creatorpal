@@ -17,8 +17,8 @@ const Header = ({ toggleSideNav }: { toggleSideNav: () => void }) => {
           <Search />
           <input type="text" placeholder="Cari..." className="outline-none" />
         </div>
-        <div className="flex gap-10 items-center">
-          <h2 className="bg-primary p-3 rounded-full text-xs text-white px-2">
+        <div className="flex gap-10 items-center text-center">
+          <h2 className="bg-primary p-3 rounded-full text-xs text-white">
             🔥Gas Berlangganan! cuman 10k/bulan
           </h2>
           <UserButton />

@@ -1,5 +1,4 @@
 import Midtrans from "midtrans-client";
-import moment from "moment/moment";
 import { NextResponse } from "next/server";
 
 let snap = new Midtrans.Snap({
@@ -40,7 +39,6 @@ export const POST = async (request) => {
     schedule: {
       interval: 1,
       interval_unit: "month",
-      start_time: moment().format("YYYY-MM-DD HH:mm:ss ZZ"),
     },
   };
 
