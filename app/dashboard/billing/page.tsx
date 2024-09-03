@@ -11,7 +11,7 @@ const Billing = () => {
   );
 
   useEffect(() => {
-    const snapUrl = "https://app.midtrans.com/snap/snap.js";
+    const snapUrl = "https://app.midtrans.com/snap/v1/transactions";
     const clientKey = process.env.NEXT_PUBLIC_CLIENT;
 
     if (clientKey) {
