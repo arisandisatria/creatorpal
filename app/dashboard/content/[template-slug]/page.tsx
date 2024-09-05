@@ -73,8 +73,6 @@ const CreateNewContent = (props: PROPS) => {
       createdBy: user?.primaryEmailAddress?.emailAddress || "",
       createdAt: moment().format("DD/MM/YYYY"),
     });
-
-    console.log(result);
   };
 
   return (

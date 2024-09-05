@@ -9,15 +9,22 @@ import {
   Settings2,
 } from "lucide-react";
 import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 
 export default function Home() {
   const router = useRouter();
 
   const { user } = useUser();
 
-  if (user) {
+  const redirectUser = () => {
     router.push("/dashboard");
-  }
+  };
+
+  useEffect(() => {
+    if (user) {
+      redirectUser();
+    }
+  }, [user]);
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-center px-8 md:px-24 relative overflow-hidden before:absolute before:top-0 before:start-1/2 before:bg-[url('https://preline.co/assets/svg/examples/polygon-bg-element.svg')] before:bg-no-repeat before:bg-top before:bg-cover before:size-full before:-z-[1] before:transform before:-translate-x-1/2">
@@ -31,7 +38,7 @@ export default function Home() {
           dalam hitungan detik.
         </p>
         <Button
-          onClick={() => router.push("/dashboard")}
+          onClick={() => redirectUser()}
           className="outline-none border-none w-fit shadow-md bg-gradient-to-br from-purple-500 to-blue-600 p-6 text-lg hover:scale-105 transition-all"
         >
           Get Started

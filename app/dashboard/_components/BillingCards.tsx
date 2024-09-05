@@ -36,53 +36,69 @@ const BillingCards = ({
     setIsLoading(true);
     const data = {
       id: user?.id,
+      email: user?.primaryEmailAddress?.emailAddress,
+      firstName: user?.firstName,
+      lastName: user?.lastName,
       orderId: `order-${Math.floor(Math.random() * (999999 - 0 + 1) + 0)}`,
       price: price,
     };
 
     try {
-      const response = await fetch("/api/create-subscription", {
-        method: "POST",
-        body: JSON.stringify(data),
-      });
+      const secret = process.env.NEXT_PUBLIC_SECRET;
+      if (secret) {
+        const encodedSecret = Buffer.from(secret).toString("base64");
+        const basicAuth = `Basic ${encodedSecret}`;
+        const response = await fetch("/api/create-subscription", {
+          method: "POST",
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+            Authorization: basicAuth,
+          },
+          body: JSON.stringify(data),
+        });
 
-      const requestData = await response.json();
+        const requestData = await response.json();
 
-      if (!response.ok) {
-        const errorMessage = await response.text();
-        throw new Error(
-          `HTTP error! Status: ${response.status}. Message: ${errorMessage}`
-        );
+        console.log(requestData);
+
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}.`);
+        }
+
+        const relocation = requestData.charge.actions[1].url;
+
+        window.location = relocation;
+
+        // window.snap.pay(requestData.token, {
+        //   onSuccess: async function (result) {
+        //     await db.insert(UserSubscriptionSchema).values({
+        //       email: user?.primaryEmailAddress?.emailAddress,
+        //       username: user?.fullName,
+        //       active: true,
+        //       paymentId: requestData?.subscriptionId.id,
+        //       joinDate: moment().format("DD/MM/yyyy"),
+        //     });
+        //     setIsLoading(false);
+        //   },
+        //   onPending: function (result) {
+        //     console.log("pending");
+        //     console.log(result);
+        //     setIsLoading(false);
+        //   },
+        //   onError: function (result) {
+        //     console.log("error");
+        //     console.log(result);
+        //     setIsLoading(false);
+        //   },
+        //   onClose: function () {
+        //     console.log(
+        //       "customer closed the popup without finishing the payment"
+        //     );
+        //     setIsLoading(false);
+        //   },
+        // });
       }
-
-      window.snap.pay(requestData.token, {
-        onSuccess: async function (result) {
-          await db.insert(UserSubscriptionSchema).values({
-            email: user?.primaryEmailAddress?.emailAddress,
-            username: user?.fullName,
-            active: true,
-            paymentId: requestData?.subscriptionId.id,
-            joinDate: moment().format("DD/MM/yyyy"),
-          });
-          setIsLoading(false);
-        },
-        onPending: function (result) {
-          console.log("pending");
-          console.log(result);
-          setIsLoading(false);
-        },
-        onError: function (result) {
-          console.log("error");
-          console.log(result);
-          setIsLoading(false);
-        },
-        onClose: function () {
-          console.log(
-            "customer closed the popup without finishing the payment"
-          );
-          setIsLoading(false);
-        },
-      });
     } catch (error: unknown) {
       setIsLoading(false);
       if (error instanceof Error) {
