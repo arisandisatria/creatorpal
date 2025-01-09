@@ -1,13 +1,11 @@
 "use client";
 
+import { usePathname, useRouter } from "next/navigation";
 import { UserSubscriptionContext } from "@/app/(context)/UserSubscriptionContext";
 import { Button } from "@/components/ui/button";
-import { db } from "@/utils/db";
-import { UserSubscriptionSchema } from "@/utils/schema";
 import { useUser } from "@clerk/nextjs";
 import { Loader2 } from "lucide-react";
-import moment from "moment";
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 
 interface PROPS {
   plan: string;
@@ -26,11 +24,23 @@ const BillingCards = ({
   historyDuration,
   subscriptionStatus,
 }: PROPS) => {
+  const router = useRouter();
+  const pathname = usePathname();
   const { user } = useUser();
   const [isLoading, setIsLoading] = useState(false);
   const { userSubscription, setUserSubscription } = useContext(
     UserSubscriptionContext
   );
+
+  useEffect(() => {
+    const url = window.location.href;
+    const params = new URLSearchParams(new URL(url).search);
+    const statusCode = params.get("status_code");
+
+    if (statusCode && statusCode === "200") {
+      router.push("/success");
+    }
+  }, [window.location.href]);
 
   const checkout = async () => {
     setIsLoading(true);
@@ -39,7 +49,7 @@ const BillingCards = ({
       email: user?.primaryEmailAddress?.emailAddress,
       firstName: user?.firstName,
       lastName: user?.lastName,
-      orderId: `order-${Math.floor(Math.random() * (999999 - 0 + 1) + 0)}`,
+      orderId: Math.floor(Math.random() * (999999 - 0 + 1) + 0),
       price: price,
     };
 
@@ -60,44 +70,34 @@ const BillingCards = ({
 
         const requestData = await response.json();
 
-        console.log(requestData);
-
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}.`);
         }
 
-        const relocation = requestData.charge.actions[1].url;
-
-        window.location = relocation;
-
-        // window.snap.pay(requestData.token, {
-        //   onSuccess: async function (result) {
-        //     await db.insert(UserSubscriptionSchema).values({
-        //       email: user?.primaryEmailAddress?.emailAddress,
-        //       username: user?.fullName,
-        //       active: true,
-        //       paymentId: requestData?.subscriptionId.id,
-        //       joinDate: moment().format("DD/MM/yyyy"),
-        //     });
-        //     setIsLoading(false);
-        //   },
-        //   onPending: function (result) {
-        //     console.log("pending");
-        //     console.log(result);
-        //     setIsLoading(false);
-        //   },
-        //   onError: function (result) {
-        //     console.log("error");
-        //     console.log(result);
-        //     setIsLoading(false);
-        //   },
-        //   onClose: function () {
-        //     console.log(
-        //       "customer closed the popup without finishing the payment"
-        //     );
-        //     setIsLoading(false);
-        //   },
-        // });
+        window.snap.pay(requestData.token, {
+          onSuccess: function (result) {
+            console.log("success");
+            console.log(result);
+            setIsLoading(false);
+          },
+          onPending: function (result) {
+            console.log("pending");
+            console.log(result);
+            setIsLoading(false);
+          },
+          onError: function (result) {
+            console.log("error");
+            console.log(result);
+            setIsLoading(false);
+          },
+          onClose: function () {
+            console.log(
+              "customer closed the popup without finishing the payment"
+            );
+            setIsLoading(false);
+          },
+          uiMode: "deeplink",
+        });
       }
     } catch (error: unknown) {
       setIsLoading(false);

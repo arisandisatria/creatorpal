@@ -8,6 +8,7 @@ declare global {
           onPending?: (result: any) => void;
           onError?: (result: any) => void;
           onClose?: () => void;
+          uiMode?: string;
         }
       ) => void;
     };

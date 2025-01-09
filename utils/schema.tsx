@@ -14,6 +14,6 @@ export const UserSubscriptionSchema = pgTable("userSubscription", {
   email: varchar("email"),
   username: varchar("username"),
   active: boolean("active"),
-  paymentId: varchar("paymentId"),
   joinDate: varchar("joinDate"),
+  endDate: varchar("endDate"),
 });

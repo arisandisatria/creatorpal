@@ -12,9 +12,8 @@ import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 
 export default function Home() {
-  const router = useRouter();
-
   const { user } = useUser();
+  const router = useRouter();
 
   const redirectUser = () => {
     router.push("/dashboard");
