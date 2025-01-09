@@ -24,7 +24,6 @@ const UsageTrack = () => {
   const { user } = useUser();
   const router = useRouter();
 
-  const [subsId, setSubsId] = useState<string | null>("");
   const { totalUsage, setTotalUsage } = useContext(TotalUsageContext);
   const { updateCreditUsage, setUpdateCreditUsage } = useContext(
     UpdateCreditUsageContext
@@ -68,10 +67,8 @@ const UsageTrack = () => {
       .where(eq(UserSubscriptionSchema.email, email));
 
     if (result.length == 0) {
-      setSubsId(null);
       setUserSubscription(false);
     } else {
-      setSubsId(result[0]?.paymentId);
       setUserSubscription(true);
     }
   };
