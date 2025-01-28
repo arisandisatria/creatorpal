@@ -65,10 +65,14 @@ const SideNav = ({
         <div className="mt-3">
           {menuList.map((menu, index) => (
             <Link
+              aria-disabled={menu.path == "/dashboard/billing"}
+              tabIndex={menu.path == "/dashboard/billing" ? -1 : undefined}
               href={menu.path}
               key={`menu-${index}`}
-              className={`${
-                path == menu.path && "bg-primary text-white"
+              className={`${path == menu.path && "bg-primary text-white"} ${
+                menu.path == "/dashboard/billing"
+                  ? "pointer-events-none opacity-40"
+                  : ""
               } flex gap-2 mb-2 p-3 hover:bg-primary hover:text-white rounded-lg cursor-pointer duration-200 items-center`}
             >
               <menu.icon className="h-6 w-6" />
