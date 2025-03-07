@@ -61,6 +61,125 @@ export default [
     ],
   },
   {
+    name: "Instagram Post Generator",
+    desc: "Bikin konten IG itu gampang. Pake AI ini aja",
+    icon: "https://cdn-icons-png.flaticon.com/128/15713/15713420.png",
+    category: "blog",
+
+    slug: "instagram-post-generator",
+    aiPrompt:
+      "Consider yourself the best content writer and copywriter in the world. Generate 3 Instagram post depends on a given keywords and give output in rich text editor format. Write it in Indonesian language only.",
+    form: [
+      {
+        label: "Masukkan kata kunci disini",
+        field: "input",
+        name: "keywords",
+        required: true,
+      },
+    ],
+  },
+  {
+    name: "Instagram Hashtag Generator",
+    desc: "Pake AI ini aja daripada bingung bikin tag konten IG kamu",
+    icon: "https://cdn-icons-png.flaticon.com/128/7045/7045432.png",
+    category: "blog",
+
+    slug: "instagram-hash-tag-generator",
+    aiPrompt:
+      "Consider yourself the best content writer and copywriter in the world. Generate 15 Instagram hash tag depends on a given keywords and give output in rich text editor format. Write it in Indonesian or English language.",
+    form: [
+      {
+        label: "Masukkan kata kunci disini",
+        field: "input",
+        name: "keywords",
+        required: true,
+      },
+    ],
+  },
+  {
+    name: "Instagram Post/Reel Idea",
+    desc: "Bikin post atau reel viral pake AI ini",
+    icon: "https://cdn-icons-png.flaticon.com/128/1029/1029183.png",
+    category: "instagram",
+
+    slug: "instagram-post-idea-generator",
+    aiPrompt:
+      "Consider yourself the best content writer and copywriter in the world. Generate 5-10 Instagram idea depends on niche with latest trend and give output in rich text editor format. Write it in Indonesian or English language.",
+    form: [
+      {
+        label: "Masukkan kata kunci disini",
+        field: "input",
+        name: "keywords",
+        required: true,
+      },
+    ],
+  },
+  {
+    name: "Product Description",
+    desc: "Bikin deskripsi produk? AI ini jagonya",
+    icon: "https://cdn-icons-png.flaticon.com/128/679/679922.png",
+    category: "Marketting",
+
+    slug: "product-description",
+    aiPrompt:
+      "Consider yourself the best content writer and copywriter in the world. Depends on user productName and description generate small description for product for e-commer business give output in rich text editor format. Write it in Indonesian language",
+    form: [
+      {
+        label: "Masukkan nama produk disini",
+        field: "input",
+        name: "productName",
+        required: true,
+      },
+      {
+        label: "Masukkan detail produknya disini",
+        field: "textarea",
+        name: "outline",
+        required: true,
+      },
+    ],
+  },
+  {
+    name: "Tagline Generator",
+    desc: "Bikin tagline brand kamu disini",
+    icon: "https://cdn-icons-png.flaticon.com/128/2178/2178616.png",
+    category: "Marketting",
+
+    slug: "tagline-generator",
+    aiPrompt:
+      "Consider yourself the best content writer and copywriter in the world. Depends on user productName and outline generate catchy 5-10 tagline for the business product and give output in rich text editor format. Write it in Indonesian language",
+    form: [
+      {
+        label: "Masukkan nama brand/product disini",
+        field: "input",
+        name: "productName",
+        required: true,
+      },
+      {
+        label: "Jelasin apa yang kamu jual disini",
+        field: "textarea",
+        name: "outline",
+        required: true,
+      },
+    ],
+  },
+  {
+    name: "Tiktok Hashtag Generator",
+    desc: "Gausah pusing, AI ini bakalan bikinin kamu tag yang viral",
+    icon: "https://cdn-icons-png.flaticon.com/128/3046/3046121.png",
+    category: "Marketing",
+    slug: "tiktok-hash-tag-generator",
+    aiPrompt:
+      "Consider yourself the best content writer and copywriter in the world. Generate 15 Tiktok hash tag depends on a given keywords and give output in rich text editor format. Write it in Indonesian or English language.",
+    form: [
+      {
+        label: "Masukkan kata kunci disini",
+        field: "input",
+        name: "keywords",
+        required: true,
+      },
+    ],
+  },
+  {
     name: "Youtube SEO Title",
     desc: "Pake AI ini bakalan bikin konten Youtube kamu jadi yang nomor satu!",
     category: "Youtube Tools",
@@ -125,126 +244,6 @@ export default [
         label: "Masukkan outline videonya disini (opsional)",
         field: "textarea",
         name: "outline",
-      },
-    ],
-  },
-
-  {
-    name: "Instagram Post Generator",
-    desc: "Bikin konten IG itu gampang. Pake AI ini aja",
-    icon: "https://cdn-icons-png.flaticon.com/128/15713/15713420.png",
-    category: "blog",
-
-    slug: "instagram-post-generator",
-    aiPrompt:
-      "Consider yourself the best content writer and copywriter in the world. Generate 3 Instagram post depends on a given keywords and give output in rich text editor format. Write it in Indonesian language only.",
-    form: [
-      {
-        label: "Masukkan kata kunci disini",
-        field: "input",
-        name: "keywords",
-        required: true,
-      },
-    ],
-  },
-  {
-    name: "Instagram Hashtag Generator",
-    desc: "Pake AI ini aja daripada bingung bikin tag konten IG kamu",
-    icon: "https://cdn-icons-png.flaticon.com/128/7045/7045432.png",
-    category: "blog",
-
-    slug: "instagram-hash-tag-generator",
-    aiPrompt:
-      "Consider yourself the best content writer and copywriter in the world. Generate 15 Instagram hash tag depends on a given keywords and give output in rich text editor format. Write it in Indonesian or English language.",
-    form: [
-      {
-        label: "Masukkan kata kunci disini",
-        field: "input",
-        name: "keywords",
-        required: true,
-      },
-    ],
-  },
-  {
-    name: "Instagram Post/Reel Idea",
-    desc: "Bikin post atau reel viral pake AI ini",
-    icon: "https://cdn-icons-png.flaticon.com/128/1029/1029183.png",
-    category: "instagram",
-
-    slug: "instagram-post-idea-generator",
-    aiPrompt:
-      "Consider yourself the best content writer and copywriter in the world. Generate 5-10 Instagram idea depends on niche with latest trend and give output in rich text editor format. Write it in Indonesian or English language.",
-    form: [
-      {
-        label: "Masukkan kata kunci disini",
-        field: "input",
-        name: "keywords",
-        required: true,
-      },
-    ],
-  },
-  {
-    name: "Tagline Generator",
-    desc: "Bikin tagline brand kamu disini",
-    icon: "https://cdn-icons-png.flaticon.com/128/2178/2178616.png",
-    category: "Marketting",
-
-    slug: "tagline-generator",
-    aiPrompt:
-      "Consider yourself the best content writer and copywriter in the world. Depends on user productName and outline generate catchy 5-10 tagline for the business product and give output in rich text editor format. Write it in Indonesian language",
-    form: [
-      {
-        label: "Masukkan nama brand/product disini",
-        field: "input",
-        name: "productName",
-        required: true,
-      },
-      {
-        label: "Jelasin apa yang kamu jual disini",
-        field: "textarea",
-        name: "outline",
-        required: true,
-      },
-    ],
-  },
-  {
-    name: "Product Description",
-    desc: "Bikin deskripsi produk? AI ini jagonya",
-    icon: "https://cdn-icons-png.flaticon.com/128/679/679922.png",
-    category: "Marketting",
-
-    slug: "product-description",
-    aiPrompt:
-      "Consider yourself the best content writer and copywriter in the world. Depends on user productName and description generate small description for product for e-commer business give output in rich text editor format. Write it in Indonesian language",
-    form: [
-      {
-        label: "Masukkan nama produk disini",
-        field: "input",
-        name: "productName",
-        required: true,
-      },
-      {
-        label: "Masukkan detail produknya disini",
-        field: "textarea",
-        name: "outline",
-        required: true,
-      },
-    ],
-  },
-  {
-    name: "Tiktok Hashtag Generator",
-    desc: "Gausah pusing, AI ini bakalan bikinin kamu tag yang viral",
-    icon: "https://cdn-icons-png.flaticon.com/128/3046/3046121.png",
-    category: "Marketing",
-    slug: "tiktok-hash-tag-generator",
-    aiPrompt:
-      "Consider yourself the best content writer and copywriter in the world. Generate 15 Tiktok hash tag depends on a given keywords and give output in rich text editor format. Write it in Indonesian or English language.",
-    form: [
-      {
-        label: "Masukkan kata kunci disini",
-        field: "input",
-        name: "keywords",
-        required: true,
       },
     ],
   },

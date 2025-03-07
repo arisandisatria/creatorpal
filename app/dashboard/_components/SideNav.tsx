@@ -26,7 +26,7 @@ const SideNav = ({
       path: "/dashboard/history",
     },
     {
-      name: "Pembayaran",
+      name: "Upgrade",
       icon: WalletCards,
       path: "/dashboard/billing",
     },

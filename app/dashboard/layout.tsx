@@ -36,7 +36,7 @@ function DashboardLayout({
                 isSideNavOpen={isSideNavOpen}
               />
             </div>
-            <div className="md:ml-64">
+            <div className="md:ml-64 bg-white">
               <Header toggleSideNav={toggleSideNav} /> {children}
             </div>
           </div>

@@ -12,7 +12,7 @@ const Header = ({ toggleSideNav }: { toggleSideNav: () => void }) => {
 
   return (
     <>
-      <div className="p-5 shadow-sm w-full bg-white border-b-2 gap-10 flex justify-center md:justify-end items-center">
+      <div className="p-5 shadow-sm w-full border-b-2 gap-10 flex justify-between md:justify-end items-center">
         <Menu
           onClick={toggleSideNav}
           size={35}
